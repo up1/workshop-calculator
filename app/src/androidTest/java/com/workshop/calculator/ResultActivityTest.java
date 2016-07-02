@@ -1,5 +1,6 @@
 package com.workshop.calculator;
 
+import android.content.Intent;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 
@@ -16,14 +17,16 @@ import static org.junit.Assert.*;
 
 public class ResultActivityTest {
 
-    public ViewInteraction displayResult;
+    public ViewInteraction displayResult = onView(withId(R.id.display_result));
 
     @Rule
     public ActivityTestRule activityTestRule = new ActivityTestRule(ResultActivity.class , true , false);
 
     @Before
     public void initialActivity() {
-        displayResult = onView(withId(R.id.display_result));
+        Intent intent = new Intent();
+        intent.putExtra("display_result" , "100000");
+        activityTestRule.launchActivity(intent);
     }
 
     @Test
