@@ -17,6 +17,8 @@ public class DivideTest {
         assertEquals(new Divide().calculate(1000,3),"333.33");
         assertEquals(new Divide().calculate(1000,7),"142.86");
         assertEquals(new Divide().calculate(1000,6),"166.67");
+        assertEquals(new Divide().calculate(789,0.123),"6,414.63");
+        assertEquals(new Divide().calculate(1000000000,1000),"1,000,000.00");
     }
     @Test
     public void testDivideByZero() {

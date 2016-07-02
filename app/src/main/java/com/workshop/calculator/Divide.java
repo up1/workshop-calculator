@@ -11,8 +11,9 @@ public class Divide {
     public String calculate (double firstNo, double secondNo) {
         if (secondNo == 0) {
             return "Infinity";
+        } else if (Math.abs(firstNo / secondNo) > 1000000) {
+            return "Error";
         } else {
-//            NumberFormat numberFormat = NumberFormat.getNumberInstance()
             DecimalFormat decimalFormat = new DecimalFormat("###,###,###,##0.00");
             return decimalFormat.format(Math.round(firstNo / secondNo * 100)/100.00);
         }
