@@ -8,7 +8,7 @@
     tools:context="com.workshop.calculator.ResultActivity">
 
     <TextView
-        android:text="TextView"
+        android:text="0.00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/display_result"
@@ -17,6 +17,5 @@
         android:layout_marginTop="16dp"
         app:layout_constraintRight_toRightOf="@+id/activity_result"
         app:layout_constraintBottom_toBottomOf="@+id/activity_result"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintHorizontal_bias="0.6" />
+        android:layout_marginBottom="16dp" />
 </android.support.constraint.ConstraintLayout>
