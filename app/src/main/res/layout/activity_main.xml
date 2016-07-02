@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.workshop.calculator.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +19,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="edit1"
+            android:hint="number1"
+            android:inputType="numberDecimal"
             android:layout_gravity="center_vertical"
             />
 
@@ -26,12 +29,14 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             >
             <Button
                 android:id="@+id/operator_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+"
+                android:layout_gravity="center_horizontal"
                 />
 
             <Button
@@ -39,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
+                android:layout_gravity="center_horizontal"
                 />
 
             <Button
@@ -47,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="*"
+                android:layout_gravity="center_horizontal"
                 />
 
             <Button
@@ -54,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/"
+                android:layout_gravity="center_horizontal"
                 />
 
         </LinearLayout>
@@ -62,7 +70,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="edit2"
+            android:hint="number2"
+            android:inputType="numberDecimal"
             android:layout_gravity="center_vertical"
             />
 
