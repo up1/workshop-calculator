@@ -1,6 +1,5 @@
 package com.workshop.calculator;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -19,6 +18,8 @@ public class DivideTest {
         assertEquals(new Divide().calculate(1000,6),"166.67");
         assertEquals(new Divide().calculate(789,0.123),"6,414.63");
         assertEquals(new Divide().calculate(1000000000,1000),"1,000,000.00");
+        assertEquals(new Divide().calculate(10000000000.00,1000),"Error");
+        assertEquals(new Divide().calculate(-10000000000.00,1000),"Error");
     }
     @Test
     public void testDivideByZero() {
