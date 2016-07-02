@@ -1,19 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.workshop.calculator.MainActivity">
+    tools:context="com.workshop.calculator.MainActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
-        app:layout_constraintRight_toRightOf="@+id/activity_main"
-        app:layout_constraintTop_toTopOf="@+id/activity_main" />
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/edittext_number1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="edit1"
+            android:layout_gravity="center_vertical"
+            />
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <Button
+                android:id="@+id/operator_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                />
+
+            <Button
+                android:id="@+id/operator_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                />
+
+            <Button
+                android:id="@+id/operator_multiply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                />
+
+            <Button
+                android:id="@+id/operator_divide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                />
+
+        </LinearLayout>
+        <EditText
+            android:id="@+id/edittext_number2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="edit2"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="40dp"
+        android:id="@+id/button_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        />
+
+</LinearLayout>
