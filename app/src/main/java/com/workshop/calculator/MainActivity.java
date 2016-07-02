@@ -77,7 +77,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         float leftNumber = getLeftNumber();
         float rightNumber = getRightNumber();
         String operator = getCurrentOperator();
-        
+        if(operator.equals("/")) {
+            launchResult(new Divide().calculate(leftNumber,rightNumber));
+        }
+    }
+    private void launchResult(String result){
+        Intent intent = new Intent(this,ResultActivity.class);
+        intent.putExtra("display_result" , result);
+        startActivity(intent);
     }
 
     @Override

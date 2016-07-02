@@ -10,9 +10,13 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
 
@@ -68,5 +72,15 @@ public class MainActivityTest {
     @Test
     public void buttonOkShowOnDisPlay() {
         buttonOk.check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testDivide() {
+        editTextNumber1.perform(typeText("789"));
+        editTextNumber2.perform(typeText("0.123"));
+        editTextNumber2.perform(closeSoftKeyboard());
+        operatorDivide.perform(click());
+        buttonOk.perform(click());
+        onView(withId(R.id.display_result)).check(matches(withText("6,414.63")));
     }
 }
