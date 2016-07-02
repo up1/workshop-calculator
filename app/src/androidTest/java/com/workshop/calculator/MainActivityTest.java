@@ -15,9 +15,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
-/**
- * Created by nextzy on 7/2/2016 AD.
- */
 
 public class MainActivityTest {
 
