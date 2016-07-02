@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,23 +49,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentOperator = operator;
     }
 
+    public float getLeftNumber() {
+        return Float.valueOf(numberize(etText1.getText().toString()));
+    }
+
+    public float getRightNumber() {
+        return Float.valueOf(numberize(etText2.getText().toString()));
+    }
+
+    private String numberize(String string) {
+        return string.replaceAll(",", "");
+
+    }
+
     public String getCurrentOperator() {
+        if (currentOperator == null) {
+            Toast.makeText(this, "Select an operator first.", Toast.LENGTH_SHORT).show();
+        }
         return currentOperator;
+    }
+
+    private void operate() {
+
+        float leftNumber = getLeftNumber();
+        float rightNumber = getRightNumber();
+        String operator = getCurrentOperator();
+        
     }
 
     @Override
     public void onClick(View v) {
         if (v == buttonOk) {
+            if (getCurrentOperator() == null) {
+
+            } else {
+                operate();
+            }
 
         } else if (v == operatorPlus) {
             setCurrentOperator("+");
-
         } else if (v == operatorMinus) {
             setCurrentOperator("-");
-
         } else if (v == operatorMultiply) {
             setCurrentOperator("*");
-
         } else if (v == operatorDivide) {
             setCurrentOperator("/");
         }
