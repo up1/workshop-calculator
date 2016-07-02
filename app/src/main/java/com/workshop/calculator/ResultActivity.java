@@ -16,10 +16,6 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String result = intent.getStringExtra("display_result");
         textView = (TextView) findViewById(R.id.display_result);
-        if(Float.parseFloat(result) >= 1000000.00){
-            textView.setText("***ERROR***");
-        }else{
-            textView.setText(result);
-        }
+        textView.setText(result);
     }
 }
