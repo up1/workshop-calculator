@@ -18,13 +18,13 @@ import static org.junit.Assert.*;
 
 public class MainActivityTest {
 
-    public static ViewInteraction editTextNumber1 = onView(withId(R.id.edittext_number1));
-    public static ViewInteraction editTextNumber2 = onView(withId(R.id.edittext_number2));
-    public static ViewInteraction operatorPlus = onView(withId(R.id.operator_plus));
-    public static ViewInteraction operatorMultiply = onView(withId(R.id.operator_multiply));
-    public static ViewInteraction operatorMinus = onView(withId(R.id.operator_minus));
-    public static ViewInteraction operatorDivide = onView(withId(R.id.operator_divide));
-    public static ViewInteraction buttonOk = onView(withId(R.id.button_ok));
+    public ViewInteraction editTextNumber1 = onView(withId(R.id.edittext_number1));
+    public ViewInteraction editTextNumber2 = onView(withId(R.id.edittext_number2));
+    public ViewInteraction operatorPlus = onView(withId(R.id.operator_plus));
+    public ViewInteraction operatorMultiply = onView(withId(R.id.operator_multiply));
+    public ViewInteraction operatorMinus = onView(withId(R.id.operator_minus));
+    public ViewInteraction operatorDivide = onView(withId(R.id.operator_divide));
+    public ViewInteraction buttonOk = onView(withId(R.id.button_ok));
 
     @Rule
     public ActivityTestRule activityTestRule = new ActivityTestRule(MainActivity.class, true, false);
