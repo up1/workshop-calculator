@@ -1,8 +1,10 @@
 package com.workshop.calculator;
 
+import android.content.Intent;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,26 +21,55 @@ import static org.junit.Assert.*;
 
 public class MainActivityTest {
 
-    public ViewInteraction editTextNumber1;
-    public ViewInteraction editTextNumber2;
+    public static ViewInteraction editTextNumber1 = onView(withId(R.id.edittext_number1));
+    public static ViewInteraction editTextNumber2 = onView(withId(R.id.edittext_number2));
+    public static ViewInteraction operatorPlus = onView(withId(R.id.operator_plus));
+    public static ViewInteraction operatorMultiply = onView(withId(R.id.operator_multiply));
+    public static ViewInteraction operatorMinus = onView(withId(R.id.operator_minus));
+    public static ViewInteraction operatorDivide = onView(withId(R.id.operator_divide));
+    public static ViewInteraction buttonOk = onView(withId(R.id.button_ok));
 
     @Rule
-    public ActivityTestRule activityTestRule = new ActivityTestRule(MainActivity.class);
+    public ActivityTestRule activityTestRule = new ActivityTestRule(MainActivity.class, true, false);
 
-    @BeforeClass
-    public void initialActivity() {
-        editTextNumber1 = onView(withId(R.id.edittext_number1));
-        editTextNumber2 = onView(withId(R.id.edittext_number2));
+    @Before
+    public void setUp(){
+        Intent intent = new Intent();
+        activityTestRule.launchActivity(intent);
     }
 
     @Test
-    public void showEditTextNumber1(){
+    public void showEditTextNumber1() {
         editTextNumber1.check(matches(isDisplayed()));
     }
 
     @Test
-    public void showEditTextNumber2(){
-
+    public void showEditTextNumber2() {
         editTextNumber2.check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void operatorPlusShowOnDisPlay() {
+        operatorPlus.check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void operatorMinusShowOnDisPlay() {
+        operatorMinus.check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void operatorMultiplyShowOnDisPlay() {
+        operatorMultiply.check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void operatorDivideShowOnDisPlay() {
+        operatorDivide.check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void buttonOkShowOnDisPlay() {
+        buttonOk.check(matches(isDisplayed()));
     }
 }
