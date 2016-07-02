@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,12 +50,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentOperator = operator;
     }
 
-    public float getLeftNumber() {
-        return Float.valueOf(numberize(etText1.getText().toString()));
+    public double getLeftNumber() {
+        return Double.valueOf(numberize(etText1.getText().toString()));
     }
 
-    public float getRightNumber() {
-        return Float.valueOf(numberize(etText2.getText().toString()));
+    public double getRightNumber() {
+        return Double.valueOf(numberize(etText2.getText().toString()));
     }
 
     private String numberize(String string) {
@@ -74,10 +72,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void operate() {
 
-        float leftNumber = getLeftNumber();
-        float rightNumber = getRightNumber();
+        double leftNumber = getLeftNumber();
+        double rightNumber = getRightNumber();
         String operator = getCurrentOperator();
-        
+        Calculate calculate = new Calculate(leftNumber, rightNumber);
+        String result;
+        switch (operator) {
+            case "+" :
+                result = calculate.plus();
+                break;
+            case "-" :
+                result = calculate.minus();
+                break;
+            case  "*" :
+                result = calculate.multiply();
+                break;
+            case "/" :
+                result = calculate.divide();
+                break;
+            default:
+                result = "N/A";
+        }
+        if (!result.equals("N/A")) {
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("display_result", result);
+            startActivity(intent);
+        }
     }
 
     @Override

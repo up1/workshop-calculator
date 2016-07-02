@@ -13,6 +13,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -75,12 +76,50 @@ public class MainActivityTest {
     }
 
     @Test
+    public void testAdd() {
+        inputNumber();
+        operatorPlus.perform(click());
+        buttonOk.perform(click());
+        onView(withId(R.id.display_result)).check(matches(withText("78,900.12")));
+    }
+
+    @Test
+    public void testSubtract() {
+        inputNumber();
+        operatorMinus.perform(click());
+        buttonOk.perform(click());
+        onView(withId(R.id.display_result)).check(matches(withText("78,899.88")));
+    }
+
+    @Test
+    public void testMultiply() {
+        inputNumber();
+        operatorMultiply.perform(click());
+        buttonOk.perform(click());
+        onView(withId(R.id.display_result)).check(matches(withText("9,704.70")));
+    }
+
+    @Test
     public void testDivide() {
+        inputNumber();
+        operatorDivide.perform(click());
+        buttonOk.perform(click());
+        onView(withId(R.id.display_result)).check(matches(withText("641,463.41")));
+    }
+
+    private void inputNumber() {
+        editTextNumber1.perform(typeText("78900"));
+        editTextNumber2.perform(typeText("0.123"));
+        editTextNumber2.perform(closeSoftKeyboard());
+    }
+
+    @Test
+    public void testPressOkWithoutOperand() {
         editTextNumber1.perform(typeText("789"));
         editTextNumber2.perform(typeText("0.123"));
         editTextNumber2.perform(closeSoftKeyboard());
-        operatorDivide.perform(click());
         buttonOk.perform(click());
-        onView(withId(R.id.display_result)).check(matches(withText("6,414.63")));
+        onView(withId(R.id.display_result)).check(doesNotExist());
+        onView(withId(R.id.button_ok)).check(matches(isDisplayed()));
     }
 }
