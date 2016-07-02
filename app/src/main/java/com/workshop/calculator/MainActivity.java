@@ -10,17 +10,17 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etText1;
-    EditText etText2;
+    private EditText etText1;
+    private EditText etText2;
 
-    Button buttonOk;
-    Button operatorPlus;
-    Button operatorMinus;
-    Button operatorMultiply;
-    Button operatorDivide;
-    String currentOperator;
+    private Button buttonOk;
+    private Button operatorPlus;
+    private Button operatorMinus;
+    private Button operatorMultiply;
+    private Button operatorDivide;
+    private String currentOperator;
 
-    public static final String DISPLAY_RESULT = "display_result";
+    static final String DISPLAY_RESULT = "display_result";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentOperator = operator;
     }
 
-    public double getLeftNumber() {
+    private double getLeftNumber() {
         return Double.valueOf(numberize(etText1.getText().toString()));
     }
 
-    public double getRightNumber() {
+    private double getRightNumber() {
         return Double.valueOf(numberize(etText2.getText().toString()));
     }
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public String getCurrentOperator() {
+    private String getCurrentOperator() {
         if (currentOperator == null) {
             Toast.makeText(this, "Select an operator first.", Toast.LENGTH_SHORT).show();
         }
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (!result.equals("N/A")) {
             Intent intent = new Intent(this, ResultActivity.class);
-            intent.putExtra("display_result", result);
+            intent.putExtra(DISPLAY_RESULT, result);
             startActivity(intent);
         }
     }
@@ -103,9 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == buttonOk) {
-            if (getCurrentOperator() == null) {
-
-            } else {
+            if (getCurrentOperator() != null) {
                 operate();
             }
 

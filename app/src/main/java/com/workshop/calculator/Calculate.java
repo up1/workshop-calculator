@@ -2,24 +2,24 @@ package com.workshop.calculator;
 
 import java.text.DecimalFormat;
 
-public class Calculate {
+class Calculate {
     private double firstNo, secondNo;
-    public Calculate(double firstNo, double secondNo) {
+    Calculate(double firstNo, double secondNo) {
         this.firstNo = firstNo;
         this.secondNo = secondNo;
     }
 
 
-    public String plus() {
+    String plus() {
         return numberFormat(firstNo + secondNo);
     }
-    public String minus() {
+    String minus() {
         return numberFormat(firstNo - secondNo);
     }
-    public String multiply() {
+    String multiply() {
         return numberFormat(firstNo * secondNo);
     }
-    public String divide() {
+    String divide() {
         if (secondNo == 0)
             return "Infinity";
         else

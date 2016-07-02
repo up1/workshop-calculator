@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 public class ResultActivityTest {
 
-    public ViewInteraction displayResult = onView(withId(R.id.display_result));
+    private ViewInteraction displayResult = onView(withId(R.id.display_result));
 
     @Rule
     public ActivityTestRule activityTestRule = new ActivityTestRule(ResultActivity.class , true , false);

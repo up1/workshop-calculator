@@ -13,7 +13,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class ResultActivityWithOperationTest {
-    public ViewInteraction displayResult = onView(withId(R.id.display_result));
+    private ViewInteraction displayResult = onView(withId(R.id.display_result));
 
     @Rule
     public ActivityTestRule activityTestRule = new ActivityTestRule(ResultActivity.class , true , false);
