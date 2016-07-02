@@ -1,19 +1,15 @@
 package com.workshop.calculator;
 
-<<<<<<< HEAD
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-=======
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
->>>>>>> 8183f34915c9d64732095c23c5b989074dd2c5c3
 
     EditText etText1;
     EditText etText2;
