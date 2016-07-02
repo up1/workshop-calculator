@@ -18,7 +18,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * Created by pm on 2/7/2559.
  */
 
-public class ResultActivityWIthOperationTest {
+public class ResultActivityWithOperationTest {
     public ViewInteraction displayResult = onView(withId(R.id.display_result));
 
     @Rule
@@ -30,5 +30,19 @@ public class ResultActivityWIthOperationTest {
         intent.putExtra("display_result" , new Divide().calculate(789,0.123));
         activityTestRule.launchActivity(intent);
         displayResult.check(matches(withText("6,414.63")));
+    }
+    @Test
+    public void showDisplayResultWithDivideByZero() {
+        Intent intent = new Intent();
+        intent.putExtra("display_result" , new Divide().calculate(789,0));
+        activityTestRule.launchActivity(intent);
+        displayResult.check(matches(withText("Infinity")));
+    }
+    @Test
+    public void showDisplayResultWithDivideBoundary() {
+        Intent intent = new Intent();
+        intent.putExtra("display_result" , new Divide().calculate(10000000000.00,1000));
+        activityTestRule.launchActivity(intent);
+        displayResult.check(matches(withText("Error")));
     }
 }
