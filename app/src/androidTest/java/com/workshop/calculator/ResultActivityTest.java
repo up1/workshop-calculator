@@ -26,7 +26,7 @@ public class ResultActivityTest {
     @Before
     public void initialActivity() {
         Intent intent = new Intent();
-        intent.putExtra(MainActivity.DISPLAY_RESULT, "100000");
+        intent.putExtra(MainActivity.DISPLAY_RESULT, "100000.00");
         activityTestRule.launchActivity(intent);
     }
 
@@ -35,6 +35,7 @@ public class ResultActivityTest {
         displayResult.check(matches(isDisplayed()));
     }
 
+    @Test
     public void checkDisplayResult() {
         displayResult.check(matches(withText("100000.00")));
     }
