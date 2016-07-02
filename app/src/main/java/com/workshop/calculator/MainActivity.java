@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button operatorDivide;
     String currentOperator;
 
+    public static final String DISPLAY_RESULT = "display_result";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
