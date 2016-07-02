@@ -1,11 +1,6 @@
 package com.workshop.calculator;
 
-<<<<<<< HEAD
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.Toast;
-=======
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
->>>>>>> 8183f34915c9d64732095c23c5b989074dd2c5c3
+
 
     EditText etText1;
     EditText etText2;
@@ -78,21 +73,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void operate() {
 
-        float leftNumber = getLeftNumber();
-        float rightNumber = getRightNumber();
-        String operator = getCurrentOperator();
-        
-    }
 
+        if (getCurrentOperator() == null) {
+
+        } else {
+            float leftNumber = getLeftNumber();
+            float rightNumber = getRightNumber();
+            String operator = getCurrentOperator();
+        }
+
+    }
     @Override
     public void onClick(View v) {
         if (v == buttonOk) {
-            if (getCurrentOperator() == null) {
-
-            } else {
-                operate();
-            }
-
+            operate();
         } else if (v == operatorPlus) {
             setCurrentOperator("+");
         } else if (v == operatorMinus) {
