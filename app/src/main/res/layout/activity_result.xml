@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <data>
+        <variable name="calculatorValue" type="com.workshop.calculator.CalculatorValue"/>
+    </data>
     <android.support.constraint.ConstraintLayout
         android:id="@+id/activity_result"
         android:layout_width="match_parent"
@@ -16,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:text="0.00"
+            android:text="@{calculatorValue.result}"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/activity_result"
             app:layout_constraintLeft_toLeftOf="@+id/activity_result"
