@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_result"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.workshop.calculator.ResultActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="calculatorValue" type="com.workshop.calculator.CalculatorValue"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.workshop.calculator.ResultActivity">
 
-    <TextView
-        android:text="0.00"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/display_result"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_result"
-        app:layout_constraintTop_toTopOf="@+id/activity_result"
-        android:layout_marginTop="16dp"
-        app:layout_constraintRight_toRightOf="@+id/activity_result"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_result"
-        android:layout_marginBottom="16dp"
-        android:textSize="30sp"
-        style="@style/TextAppearance.AppCompat.Display4"
-        />
+        <TextView
+            android:id="@+id/display_result"
+            style="@style/TextAppearance.AppCompat.Display4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{calculatorValue.result}"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_result"
+            app:layout_constraintLeft_toLeftOf="@+id/activity_result"
+            app:layout_constraintRight_toRightOf="@+id/activity_result"
+            app:layout_constraintTop_toTopOf="@+id/activity_result" />
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>
