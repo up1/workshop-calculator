@@ -8,8 +8,8 @@ import android.os.Bundle;
 import com.workshop.calculator.databinding.ActivityResultBinding;
 
 public class ResultActivity extends AppCompatActivity {
-    private static final String DISPLAY_RESULT = "display_result";
-    private ActivityResultBinding binder;
+    public static final String DISPLAY_RESULT = "display_result";
+    public ActivityResultBinding binder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
