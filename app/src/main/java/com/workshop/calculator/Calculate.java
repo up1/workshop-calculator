@@ -3,12 +3,11 @@ package com.workshop.calculator;
 import java.text.DecimalFormat;
 
 class Calculate {
-    private double firstNo, secondNo;
+    public double firstNo, secondNo;
     Calculate(double firstNo, double secondNo) {
         this.firstNo = firstNo;
         this.secondNo = secondNo;
     }
-
 
     String plus() {
         return numberFormat(firstNo + secondNo);

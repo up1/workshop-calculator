@@ -10,9 +10,9 @@ import android.view.View;
 import com.workshop.calculator.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private String currentOperator;
+    public String currentOperator;
     static final String DISPLAY_RESULT = "display_result";
-    private ActivityMainBinding binder;
+    public ActivityMainBinding binder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
