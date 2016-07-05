@@ -1,6 +1,7 @@
 package com.workshop.calculator;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -8,41 +9,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.workshop.calculator.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText etText1;
-    private EditText etText2;
-
-    private Button buttonOk;
-    private Button operatorPlus;
-    private Button operatorMinus;
-    private Button operatorMultiply;
-    private Button operatorDivide;
     private String currentOperator;
 
     static final String DISPLAY_RESULT = "display_result";
 
+    ActivityMainBinding activityMainBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initInstance();
     }
 
     private void initInstance() {
-        etText1 = (EditText) findViewById(R.id.edittext_number1);
-        etText2 = (EditText) findViewById(R.id.edittext_number2);
-        buttonOk = (Button) findViewById(R.id.button_ok);
-        operatorPlus = (Button) findViewById(R.id.operator_plus);
-        operatorMinus = (Button) findViewById(R.id.operator_minus);
-        operatorMultiply = (Button) findViewById(R.id.operator_multiply);
-        operatorDivide = (Button) findViewById(R.id.operator_divide);
-
-        buttonOk.setOnClickListener(this);
-        operatorPlus.setOnClickListener(this);
-        operatorMinus.setOnClickListener(this);
-        operatorMultiply.setOnClickListener(this);
-        operatorDivide.setOnClickListener(this);
+        activityMainBinding.buttonOk.setOnClickListener(this);
+        activityMainBinding.operatorPlus.setOnClickListener(this);
+        activityMainBinding.operatorMinus.setOnClickListener(this);
+        activityMainBinding.operatorDivide.setOnClickListener(this);
+        activityMainBinding.operatorMultiply.setOnClickListener(this);
     }
 
 
@@ -51,11 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private double getLeftNumber() {
-        return Double.valueOf(numberize(etText1.getText().toString()));
+        return Double.valueOf(numberize(activityMainBinding.edittextNumber1.getText().toString()));
     }
 
     private double getRightNumber() {
-        return Double.valueOf(numberize(etText2.getText().toString()));
+        return Double.valueOf(numberize(activityMainBinding.edittextNumber2.getText().toString()));
     }
 
     private String numberize(String string) {
@@ -102,18 +91,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == buttonOk) {
+        if (v == activityMainBinding.buttonOk) {
             if (getCurrentOperator() != null) {
                 operate();
             }
 
-        } else if (v == operatorPlus) {
+        } else if (v == activityMainBinding.operatorPlus) {
             setCurrentOperator("+");
-        } else if (v == operatorMinus) {
+        } else if (v == activityMainBinding.operatorMinus) {
             setCurrentOperator("-");
-        } else if (v == operatorMultiply) {
+        } else if (v == activityMainBinding.operatorMultiply) {
             setCurrentOperator("*");
-        } else if (v == operatorDivide) {
+        } else if (v == activityMainBinding.operatorDivide) {
             setCurrentOperator("/");
         }
 
